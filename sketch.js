@@ -5,8 +5,8 @@ let y = 200;
 const r = 25;
 
 //velocidade da bola aleatória
-const vx = Math.floor(Math.random() * 10) - 5;
-const vy = Math.floor(Math.random() * 10) - 5;
+var vx = Math.floor(Math.random() * 10) - 5;
+var vy = Math.floor(Math.random() * 10) - 5;
 
 //função setup do p5js
 function setup() {
@@ -24,10 +24,11 @@ function draw()
     x += vx;
     y += vy;
     
-    //se tocar na borda horizontal, inverte a velocidade
+    //se tocar na borda horizontal, reserta no meio da tela
     if (x < r || x > width - r) {
-        vx *= -1;
-    }
+        x = width / 2;
+        y = height / 2;
+    }    
 
     //idem para boarda vertical
     if (y < r || y > height - r) {
